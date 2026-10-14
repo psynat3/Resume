@@ -1,0 +1,397 @@
+/*
+    COLOR PALETTE
+    -------------------------------------
+    Cream (header bg)       #F4EFE6
+    White (work bg)         #FFFFFF
+    Ink / Black (education) #111111
+    Red-Orange (accent)     #E8452C
+    Warm Gray (text)        #5C5650
+    Sand (borders)          #DDD5C8
+
+    FONTS
+    -------------------------------------
+    Headings: Archivo (400, 600, 900)
+    Body:     EB Garamond (400, 500, 400 italic)
+*/
+
+/* =====================================
+   GLOBAL
+   ===================================== */
+
+/* Box model fix */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    --cream: #F4EFE6;
+    --white: #FFFFFF;
+    --ink: #111111;
+    --accent: #E8452C;
+    --gray: #5C5650;
+    --sand: #DDD5C8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: var(--cream);
+}
+
+h1, h2, h3 {
+    font-family: 'Archivo', Arial, sans-serif;
+    line-height: 1.05;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Italic serif accent word (like "system" in the template) */
+h1 em,
+h2 em {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    color: var(--accent);
+}
+
+a {
+    color: inherit;
+}
+
+/* Content wrapper (reused in every section) */
+.content-wrap {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 50px;
+    overflow: hidden;
+}
+
+/* Columns (reused in the header and work section) */
+.column-narrow {
+    width: 30%;
+    float: left;
+    padding-right: 3%;
+    min-height: 175px;
+}
+
+.column-wide {
+    width: 70%;
+    float: left;
+    min-height: 225px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 24px;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-dark {
+    background-color: var(--ink);
+    color: var(--white);
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* =====================================
+   HEADER
+   ===================================== */
+header {
+    background-color: var(--cream);
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 24px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--sand);
+}
+
+.brand {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* little red square before the name */
+.brand::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    background-color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.profile-img {
+    /* width: 300px; */
+    /* float: left; */
+    /* margin-right: 30px; */
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;   /* keeps the photo a perfect circle */
+    object-fit: cover;     /* crops the photo instead of stretching it */
+    padding-right: 0;      /* images can't use padding for spacing, so the text column gets it instead */
+    box-shadow: 14px 14px 0 var(--accent);   /* red block behind the photo like the template */
+}
+
+/* space between the photo and the text */
+header .column-wide {
+    padding-left: 5%;
+}
+
+header h1,
+header h2 {
+    margin: 0;
+}
+
+header h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+header p {
+    color: var(--gray);
+    margin: 18px 0 28px;
+}
+
+/* =====================================
+   WORK EXPERIENCE & EDUCATION
+   ===================================== */
+main h2 {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+}
+
+.section-number {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent);
+    vertical-align: super;
+    margin-right: 10px;
+}
+
+/* One job or school */
+.entry {
+    padding: 36px 0;
+    border-top: 1px solid var(--sand);
+    overflow: hidden;   /* keeps the floated columns inside each entry */
+}
+
+.entry h3 {
+    font-size: 26px;
+    font-weight: 900;
+    margin: 0 0 12px;
+}
+
+.entry .company,
+.entry .date {
+    margin: 0 0 6px;
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.entry .company {
+    color: var(--accent);
+}
+
+.entry p {
+    margin-top: 0;
+}
+
+.entry ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.entry li::marker {
+    color: var(--accent);
+}
+
+.work {
+    background-color: var(--white);
+}
+
+.education {
+    background-color: var(--ink);
+    color: var(--cream);
+}
+
+.education .entry {
+    border-top-color: #333;
+}
+
+/* =====================================
+   FOOTER
+   ===================================== */
+footer {
+    background-color: var(--accent);
+    color: var(--ink);
+    text-align: center;
+}
+
+footer h2 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+footer h2 em {
+    color: var(--white);
+}
+
+.contact-info {
+    margin: 30px 0 50px;
+}
+
+.contact-info a {
+    padding: 10px;
+    display: inline-block;
+    margin: 5px;
+    font-family: 'Archivo', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+}
+
+.contact-info a:hover {
+    background-color: var(--ink);
+    color: var(--white);
+}
+
+/* Huge name like "NORDEAUX" in the template */
+.big-name {
+    font-family: 'Archivo', Arial, sans-serif;
+    font-weight: 900;
+    font-size: min(15vw, 140px);
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    margin: 0 0 30px;
+}
+
+.copyright {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* =====================================
+   PHONE LAYOUT
+   ===================================== */
+@media (max-width: 700px) {
+    body {
+        font-size: 18px;
+    }
+
+    .content-wrap {
+        padding: 30px 20px;
+    }
+
+    /* stack the columns on small screens */
+    .column-narrow,
+    .column-wide {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+        min-height: 0;
+    }
+
+    header .column-wide {
+        padding-left: 0;
+    }
+
+    .profile-img {
+        width: 60%;
+        margin-bottom: 40px;
+    }
+
+    .entry .column-narrow {
+        margin-bottom: 16px;
+    }
+
+    .top-bar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        margin: 0;
+        gap: 24px;
+    }
+}
